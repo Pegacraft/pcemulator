@@ -1,4 +1,5 @@
 import counter
+import display
 
 registers: dict = {}
 
@@ -23,7 +24,7 @@ def reg_write(value: int, opcode: int):
     elif opcode == 0b1111_1110:
         registers[6] = value
     elif opcode == 0b1111_1111:
-        print(value)
+        display.get_output(value)
 
 
 def reg_read(opcode: int):
@@ -44,18 +45,6 @@ def reg_read(opcode: int):
     elif opcode == 0b1111_1110:
         return registers.get(6)
     elif opcode == 0b1111_1111:
-        input_val: str = input("Input: ")
-        try:
-            return int(input_val, 2)
-        except ValueError:
-            pass
-        try:
-            return int(input_val, 10)
-        except ValueError:
-            pass
-        try:
-            return int(input_val, 16)
-        except ValueError:
-            pass
+        return display.get_input()
     else:
         return opcode

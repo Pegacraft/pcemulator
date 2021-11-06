@@ -6,9 +6,7 @@ import registers
 import rom
 
 if __name__ == '__main__':
-    rom.rom_write4((19, 1, 0, None), 0)
-    rom.rom_write4((20, 0, 249, None), 3)
-    rom.rom_write4((1, 249, 0, 255), 6)
+    rom.rom_write4((1, 255, 0, 255), 0)
 
     while True:
         # Translates the instruction into a usable form
